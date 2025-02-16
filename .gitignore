@@ -27,3 +27,7 @@ dist-ssr
 
 # lock
 pnpm-lock.yaml
+
+# theme
+assets
+zip

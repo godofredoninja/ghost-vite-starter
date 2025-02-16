@@ -1,0 +1,8 @@
+/* Tailwind
+/* ---------------------------------------------------------- */
+@import 'tailwindcss';
+@import './base/setting-tailwind.css';
+
+/* base
+/* ---------------------------------------------------------- */
+@import './base/global.css';

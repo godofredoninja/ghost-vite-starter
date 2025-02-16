@@ -1,0 +1,19 @@
+body {
+  @apply bg-slate-900;
+
+  position: relative;
+}
+
+.site-main {
+  @apply relative z-10 mx-auto flex text-center lg:grid;
+}
+
+.nav ul {
+  @apply flex h-16 items-center justify-center gap-4;
+
+  li {
+    @apply text-xl font-semibold;
+
+    padding: 1rem;
+  }
+}

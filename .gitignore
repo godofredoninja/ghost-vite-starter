@@ -12,11 +12,11 @@ dist
 dist-ssr
 *.local
 
-# Ignore all editor configurations except specific files
+# Editor directories and files
 .vscode/*
-!.vscode/{settings.json,extensions.json}
+!.vscode/settings.json
+!.vscode/extensions.json
 
-# Ignore common IDE files
 .idea
 .DS_Store
 *.suo

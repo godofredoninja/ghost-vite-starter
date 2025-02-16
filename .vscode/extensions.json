@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode", // Prettier for formatting
+    "dbaeumer.vscode-eslint", // ESLint for JS/TS linting
+    "stylelint.vscode-stylelint", // Stylelint for CSS/PostCSS
+    "bradlc.vscode-tailwindcss", // Support for Tailwind CSS
+    "EditorConfig.EditorConfig" // Ensures consistent coding styles across editors
+  ]
+}

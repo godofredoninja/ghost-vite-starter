@@ -2,9 +2,10 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import fullReload from 'vite-plugin-full-reload'
 import { vitePluginCleanDevAssets } from './plugins/vite-plugin-clean-dev-assets'
+import { vitePluginBuildZip } from './plugins/vite-plugin-build-zip'
 
 /**
- * Function to resolve file paths in `src`
+ * Function to resolve file paths within `src`
  */
 const resolvePath = (type: 'js' | 'css', file: string) =>
   resolve(__dirname, `src/${type}/${file}`)
@@ -17,7 +18,7 @@ const serverConfig = {
   port: 3000,
   strictPort: true,
   proxy: {
-    // Redirects all requests except `/assets/` to Ghost's local server
+    // Redirect all requests except `/assets/` to Ghost's local server
     '^/(?!assets/)(.*)': {
       target: 'http://localhost:2368',
       changeOrigin: true,
@@ -72,14 +73,22 @@ const logCleaner = {
  * Plugins configuration
  */
 const plugins = [
+  logCleaner, // Custom plugin to clean up logs
+
   fullReload(['*.hbs', 'partials/**/*.hbs', '!../node_modules/**']),
 
-  logCleaner, // Custom plugin to clean up logs
-  // Uso del plugin de limpieza de assets, conservando la carpeta "image"
-
+  // Uses the asset cleanup plugin, keeping the "img" folder
   vitePluginCleanDevAssets({
     assetsDir: 'assets',
-    whitelist: ['img'], // Puedes agregar más elementos si lo requieres
+    whitelist: ['img'], // Add more elements if needed
+  }),
+
+  vitePluginBuildZip({
+    extensions: ['.hbs'], // Copy all .hbs files from the root
+    folders: ['assets', 'partials'], // Copy entire folders
+    files: ['package.json'], // Copy individual files
+    outputDir: 'dist', // 📂 User-defined destination folder
+    outputZip: 'zip', // Output folder name to be included in the ZIP
   }),
 ]
 

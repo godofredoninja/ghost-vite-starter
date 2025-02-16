@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import fullReload from 'vite-plugin-full-reload'
+import { vitePluginCleanDevAssets } from './plugins/vite-plugin-clean-dev-assets'
 
 /**
  * Function to resolve file paths in `src`
@@ -72,7 +73,14 @@ const logCleaner = {
  */
 const plugins = [
   fullReload(['*.hbs', 'partials/**/*.hbs', '!../node_modules/**']),
+
   logCleaner, // Custom plugin to clean up logs
+  // Uso del plugin de limpieza de assets, conservando la carpeta "image"
+
+  vitePluginCleanDevAssets({
+    assetsDir: 'assets',
+    whitelist: ['img'], // Puedes agregar más elementos si lo requieres
+  }),
 ]
 
 export default defineConfig({

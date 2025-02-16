@@ -1,14 +1,72 @@
 {
   "name": "ghost-vite-starter",
-  "private": true,
   "version": "0.0.0",
+  "description": "A lightweight and efficient Ghost theme starter using Vite for fast development.",
+  "private": true,
   "type": "module",
+  "keywords": [
+    "ghost-theme",
+    "vite",
+    "tailwind",
+    "minimal",
+    "ghost",
+    "theme",
+    "typescript"
+  ],
+  "author": {
+    "name": "GodoFredo",
+    "email": "hello@godofredo.ninja",
+    "url": "https://godofredo.ninja"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godofredoninja/ghost-vite-starter"
+  },
+  "bugs": {
+    "url": "https://github.com/godofredoninja/ghost-vite-starter/issues",
+    "email": "hello@godofredo.ninja"
+  },
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Minimal",
+      "Magazine",
+      "Blog"
+    ]
+  },
+  "config": {
+    "card_assets": true,
+    "posts_per_page": 12,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1200
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint:css": "ts-node stylelint.config.ts && stylelint 'src/**/*.{css,scss,pcss}'",
-    "lint:js": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint:js": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:css": "ts-node stylelint.config.ts && stylelint 'src/**/*.{css,scss,pcss}'"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.24.0",

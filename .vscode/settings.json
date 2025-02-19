@@ -29,5 +29,13 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "tailwindCSS.includeLanguages": {
+    "hbs": "html",
+    "handlebars": "html"
+  },
+  "files.associations": {
+    "*.hbs": "handlebars"
+  },
+  "tailwindCSS.emmetCompletions": true
 }

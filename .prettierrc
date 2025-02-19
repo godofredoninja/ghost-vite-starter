@@ -1,13 +1,7 @@
 {
   "semi": false,
-  "singleQuote": true,
+  "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "all",
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "overrides": [
-    {
-      "files": "*.hbs",
-      "options": { "parser": "html" }
-    }
-  ]
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

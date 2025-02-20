@@ -42,9 +42,7 @@ async function cleanAssets(options: CleanDevAssetsOptions) {
     }),
   )
 
-  console.log(
-    `🧹 Cleanup completed in "${assetsDir}". Preserved items: ${whitelist.join(', ') || 'none'}.`,
-  )
+  console.log(`🧹 Cleanup completed in "${assetsDir}". Preserved items: ${whitelist.join(', ') || 'none'}.`)
 }
 
 /**
@@ -53,9 +51,7 @@ async function cleanAssets(options: CleanDevAssetsOptions) {
  * @param options - Configuration options.
  * @returns A Vite plugin instance.
  */
-export function vitePluginCleanDevAssets(
-  options: CleanDevAssetsOptions,
-): Plugin {
+export function vitePluginCleanDevAssets(options: CleanDevAssetsOptions): Plugin {
   return {
     name: 'vite-plugin-clean-dev-assets',
     apply: 'serve', // Runs only in development mode

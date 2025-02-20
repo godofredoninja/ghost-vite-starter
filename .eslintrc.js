@@ -20,8 +20,8 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error', // Aplica las reglas de Prettier dentro de ESLint
     'no-console': 'warn',
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'never'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], // Evita advertencias en variables sin usar prefijadas con "_"
   },
   overrides: [

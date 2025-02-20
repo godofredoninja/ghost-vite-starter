@@ -7,8 +7,7 @@ import { vitePluginBuildZip } from './plugins/vite-plugin-build-zip'
 /**
  * Function to resolve file paths within `src`
  */
-const resolvePath = (type: 'js' | 'css', file: string) =>
-  resolve(__dirname, `src/${type}/${file}`)
+const resolvePath = (type: 'js' | 'css', file: string) => resolve(__dirname, `src/${type}/${file}`)
 
 /**
  * Server configuration
@@ -52,8 +51,7 @@ const buildConfig = {
 /**
  * Helper function to shorten file paths in logs
  */
-const shortenPath = (file: string) =>
-  file.replace(process.cwd(), '').replace(/^\/+/, '')
+const shortenPath = (file: string) => file.replace(process.cwd(), '').replace(/^\/+/, '')
 
 /**
  * Custom plugin to clean up file paths in Vite logs

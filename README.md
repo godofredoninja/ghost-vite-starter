@@ -65,14 +65,8 @@ Welcome to **Ghost Vite Starter** 🎉, the perfect starting point for developin
 To make Vite work correctly in a Ghost environment running on `localhost:2368`, inject the following scripts into **Settings → Code Injection** in Ghost:
 
 ```html
-<script
-  type="module"
-  src="http://YOUR_LOCAL_IP:3000/assets/@vite/client"
-></script>
-<script
-  type="module"
-  src="http://YOUR_LOCAL_IP:3000/assets/js/main.ts"
-></script>
+<script type="module" src="http://YOUR_LOCAL_IP:3000/assets/@vite/client"></script>
+<script type="module" src="http://YOUR_LOCAL_IP:3000/assets/js/main.ts"></script>
 ```
 
 > **Note:** Replace `YOUR_LOCAL_IP` with your actual local IP address (e.g., `192.168.1.3`). This ensures Ghost connects properly to the Vite server.

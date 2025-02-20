@@ -1,11 +1,12 @@
-{{!< default}} {{#post}}
-<article>
-  {{#match @page.show_title_and_feature_image}}
-  <header class="">
-    <h1 class="">{{title}}</h1>
-  </header>
-  {{/match}}
+{{!< default}}
+{{#post}}
+  <article>
+    {{#match @page.show_title_and_feature_image}}
+      <header class="">
+        <h1 class="">{{title}}</h1>
+      </header>
+    {{/match}}
 
-  <div class="">{{content}}</div>
-</article>
+    <div class="">{{content}}</div>
+  </article>
 {{/post}}

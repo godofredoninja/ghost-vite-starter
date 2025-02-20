@@ -43,22 +43,17 @@ export function vitePluginBuildZip(options: BuildZipOptions): Plugin {
       cleanDirectory(destinationBase, options.outputDir)
 
       // 🔸 2. Copy files and folders based on the options
-      options.extensions &&
-        copyFilesByExtension(rootDir, destinationBase, options.extensions)
+      options.extensions && copyFilesByExtension(rootDir, destinationBase, options.extensions)
       options.folders && copyFolders(rootDir, destinationBase, options.folders)
       options.files && copyFiles(rootDir, destinationBase, options.files)
 
       // 🔸 3. Get the ZIP filename from package.json
       if (!fs.existsSync(packageJsonPath)) {
-        console.error(
-          '❌ package.json not found. Cannot generate ZIP filename.',
-        )
+        console.error('❌ package.json not found. Cannot generate ZIP filename.')
         return
       }
 
-      const { name, version } = JSON.parse(
-        fs.readFileSync(packageJsonPath, 'utf-8'),
-      )
+      const { name, version } = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
       const zipFileName = `${name}-v-${version.replace(/\./g, '-')}.zip`
       const zipFilePath = path.join(zipFolder, zipFileName)
 
@@ -85,20 +80,13 @@ function cleanDirectory(dirPath: string, dirName: string) {
 /**
  * Copy files by extension.
  */
-function copyFilesByExtension(
-  rootDir: string,
-  destinationBase: string,
-  extensions: string[],
-) {
+function copyFilesByExtension(rootDir: string, destinationBase: string, extensions: string[]) {
   const filesInRoot = fs.readdirSync(rootDir)
   for (const file of filesInRoot) {
     const sourcePath = path.join(rootDir, file)
     const destinationPath = path.join(destinationBase, file)
 
-    if (
-      fs.statSync(sourcePath).isFile() &&
-      extensions.includes(path.extname(file))
-    ) {
+    if (fs.statSync(sourcePath).isFile() && extensions.includes(path.extname(file))) {
       fs.copySync(sourcePath, destinationPath)
       logCopyAction(rootDir, sourcePath, destinationPath)
     }
@@ -108,11 +96,7 @@ function copyFilesByExtension(
 /**
  * Copy entire folders.
  */
-function copyFolders(
-  rootDir: string,
-  destinationBase: string,
-  folders: string[],
-) {
+function copyFolders(rootDir: string, destinationBase: string, folders: string[]) {
   for (const folder of folders) {
     const sourcePath = path.join(rootDir, folder)
     const destinationPath = path.join(destinationBase, folder)
@@ -146,18 +130,13 @@ function copyFiles(rootDir: string, destinationBase: string, files: string[]) {
 /**
  * Generate a ZIP archive of the specified directory.
  */
-async function zipDirectory(
-  sourceDir: string,
-  zipFilePath: string,
-): Promise<void> {
+async function zipDirectory(sourceDir: string, zipFilePath: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(zipFilePath)
     const archive = archiver('zip', { zlib: { level: 9 } })
 
     output.on('close', () => {
-      console.log(
-        `✅ ZIP created: ${path.basename(zipFilePath)} (${archive.pointer()} bytes)`,
-      )
+      console.log(`✅ ZIP created: ${path.basename(zipFilePath)} (${archive.pointer()} bytes)`)
       resolve()
     })
 
@@ -172,12 +151,7 @@ async function zipDirectory(
 /**
  * Log a copy action to the console.
  */
-function logCopyAction(
-  rootDir: string,
-  source: string,
-  destination: string,
-  isFolder = false,
-) {
+function logCopyAction(rootDir: string, source: string, destination: string, isFolder = false) {
   const sourceName = path.basename(source)
   let relativeDest = path.relative(rootDir, destination)
 

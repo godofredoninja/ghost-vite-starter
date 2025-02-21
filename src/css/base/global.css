@@ -1,11 +1,9 @@
 body {
-  @apply bg-slate-900;
-
   position: relative;
 }
 
 .site-main {
-  @apply relative z-10 mx-auto flex text-center lg:grid;
+  @apply relative;
 }
 
 .nav ul {

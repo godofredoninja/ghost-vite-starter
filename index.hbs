@@ -1,6 +1,28 @@
 {{!< default}}
-{{#foreach posts}}
-  <article>
-    <h2><a href="{{url}}">{{title}}</a></h2>
-  </article>
-{{/foreach}}
+
+<div class="text-center text-white">
+  <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <a href="https://ghost.org/" target="_blank">
+      <img src="{{asset 'img/ghost.png'}}" class="logo mx-auto h-24 w-24 invert" alt="Vite logo" />
+    </a>
+    <a href="https://vite.dev" target="_blank">
+      <img src="{{asset 'img/vite.svg'}}" class="logo mx-auto h-24 w-24" alt="Vite logo" />
+    </a>
+    <a href="https://www.typescriptlang.org/" target="_blank">
+      <img src="{{asset 'img/typescript.svg'}}" class="logo mx-auto h-24 w-24" alt="TypeScript logo" />
+    </a>
+    <a href="https://tailwindcss.com/" target="_blank">
+      <img src="{{asset 'img/tailwindcss.svg'}}" class="logo mx-auto h-24 w-24" alt="TypeScript logo" />
+    </a>
+  </div>
+
+  <h1 class="my-14 text-center text-5xl leading-snug font-bold">Ghost + Vite + TypeScript + Tailwind CSS</h1>
+
+  <div class="card">
+    <button id="counter" type="button"></button>
+  </div>
+
+  <p class="read-the-docs text-slate-300">
+    Click on the Ghost, Vite, TypeScript and Tailwind CSS logos to learn more.
+  </p>
+</div>

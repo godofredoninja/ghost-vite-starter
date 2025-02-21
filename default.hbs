@@ -12,11 +12,11 @@
     {{!-- Outputs important meta data and settings, should always be in <head> --}}
     {{ghost_head}}
 </head>
-<body class="text-gray-100 {{body_class}}">
-  <div class="site-main container md:flex">
+<body class="{{body_class}}">
+  <div class="app bg-slate-900 flex items-center justify-center min-h-screen py-8">
     {{> header }}
 
-    <main class="flex flex-col">
+    <main class="site-main">
       {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
       {{{body}}}
     </main>

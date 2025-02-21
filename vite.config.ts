@@ -3,6 +3,7 @@ import { resolve } from 'path'
 import fullReload from 'vite-plugin-full-reload'
 import { vitePluginCleanDevAssets } from './plugins/vite-plugin-clean-dev-assets'
 import { vitePluginBuildZip } from './plugins/vite-plugin-build-zip'
+import { viteOrderTailwinClasses } from './plugins/vite-plugin-order-tailwin-classes'
 
 /**
  * Function to resolve file paths within `src`
@@ -87,6 +88,10 @@ const plugins = [
     files: ['package.json'], // Copy individual files
     outputDir: 'dist', // 📂 User-defined destination folder
     outputZip: 'zip', // Output folder name to be included in the ZIP
+  }),
+
+  viteOrderTailwinClasses({
+    patterns: ['*.hbs', 'partials/**/*.hbs'],
   }),
 ]
 

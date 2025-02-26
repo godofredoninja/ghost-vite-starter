@@ -8,7 +8,7 @@ interface FormatTailwindHbsOptions {
   patterns: string[] // Glob patterns to search for .hbs files
 }
 
-export function viteOrderTailwinClasses(options: FormatTailwindHbsOptions): Plugin {
+export function viteOrderTailwindClasses(options: FormatTailwindHbsOptions): Plugin {
   return {
     name: 'format-tailwind-hbs',
     apply: 'serve', // Only in development mode
